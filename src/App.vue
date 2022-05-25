@@ -1,119 +1,88 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { ref } from 'vue';
+import Options from './components/Options.vue';
+import Show from './components/Show.vue'
+
+const options = ref<string[]>([
+    '人物',
+    '动漫'
+])
+
+const cards = ref<Card[]>([{
+    title: '你的名字',
+    stars: 4,
+    tags: '催泪',
+    description: '感人至极'
+}])
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="app">
+    <header class="app__head">
+      cartoon
+    </header>
+    <main class="wrap">
+      <aside class="wrap__leftWrap">
+        <Options :options="options"/>
+      </aside>
+      <article class="wrap__rightWrap">
+        <Show :cards="cards"/>
+      </article>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    </main>
+    <footer class="app__foot">
+      地址：青青草原
+      <p>
+        青青草原一片天，谁见懒爷不递烟
+      </p>
+    </footer>
+  </div>
 </template>
 
-<style>
-@import '@/assets/base.css';
+<style scoped lang="scss">
+.app__head {
+  widows: 100vw;
+  height: 10vh;
+  background-color: #ebc6e5;
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
-
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
+  line-height: 10vh;
   text-align: center;
-  margin-top: 2rem;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #45a7af;
+}
+.wrap {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+
+  overflow: hidden;
+
+  &__leftWrap {
+    width: 30vw;
+    background-color: #cc9bd0;
+  }
+
+  &__rightWrap {
+    width: 70vw;
+    background-color: #c585ce;
+
+    overflow: auto;
+  }
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+.app__foot {
+  widows: 100vw;
+  height: 10vh;
+  background-image: linear-gradient(#9eebca, #262a26);
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+  
+  text-align: center;
+  font-weight: bold;
+  color: #222f30;
 }
 </style>
