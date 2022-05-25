@@ -4,3 +4,8 @@ export interface Card {
     description: String
     tags: '搞笑' | '狗粮' | '催泪'
 }
+
+export interface Person {
+    name: String
+    description: String
+}

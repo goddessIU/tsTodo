@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import Options from './components/Options.vue';
 import Show from './components/Show.vue'
+import People from './components/People.vue';
 import type { Card } from './types';
 
 const options = ref<string[]>([
@@ -22,7 +23,8 @@ const options = ref<string[]>([
         <Options :options="options"/>
       </aside>
       <article class="wrap__rightWrap">
-        <Show />
+        <!-- <Show /> -->
+        <People />
       </article>
 
     </main>
