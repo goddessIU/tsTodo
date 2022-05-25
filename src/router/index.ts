@@ -4,16 +4,13 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [{
     path: '/', 
-    component: () => import('../components/Show.vue')
+    component: () => import('../components/People.vue')
   }, {
     path: '/Show',
     component: () => import('../components/Show.vue')
   }, {
     path: '/People',
     component: () => import('../components/People.vue')
-  }, {
-    path: '',
-    component: () => import('../components/Show.vue')
   }]
 })
 

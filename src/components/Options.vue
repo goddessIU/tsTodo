@@ -18,10 +18,14 @@ const options = props.options
 const goRouter = (option: String) => {
     if (option === '人物') {
         clickedIndex.value = 0
-        router.push('/People')
+        router.push({
+            path: '/People'
+        })
     } else if (option === '动漫') {
         clickedIndex.value = 1
-        router.push('/Show')
+        router.push({
+            path: '/Show'
+        })
     }
 }
 
