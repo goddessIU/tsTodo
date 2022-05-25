@@ -1,9 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-  ]
+  history: createWebHashHistory(),
+  routes: [{
+    path: '/', 
+    component: () => import('../components/Show.vue')
+  }, {
+    path: '/Show',
+    component: () => import('../components/Show.vue')
+  }, {
+    path: '/People',
+    component: () => import('../components/People.vue')
+  }, {
+    path: '',
+    component: () => import('../components/Show.vue')
+  }]
 })
 
 export default router

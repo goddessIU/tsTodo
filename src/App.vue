@@ -23,8 +23,7 @@ const options = ref<string[]>([
         <Options :options="options"/>
       </aside>
       <article class="wrap__rightWrap">
-        <!-- <Show /> -->
-        <People />
+        <router-view></router-view>
       </article>
 
     </main>
