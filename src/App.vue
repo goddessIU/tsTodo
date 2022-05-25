@@ -2,18 +2,14 @@
 import { ref } from 'vue';
 import Options from './components/Options.vue';
 import Show from './components/Show.vue'
+import type { Card } from './types';
 
 const options = ref<string[]>([
     '人物',
     '动漫'
 ])
 
-const cards = ref<Card[]>([{
-    title: '你的名字',
-    stars: 4,
-    tags: '催泪',
-    description: '感人至极'
-}])
+
 </script>
 
 <template>
@@ -26,7 +22,7 @@ const cards = ref<Card[]>([{
         <Options :options="options"/>
       </aside>
       <article class="wrap__rightWrap">
-        <Show :cards="cards"/>
+        <Show />
       </article>
 
     </main>

@@ -2,17 +2,15 @@
 import type { Card } from '@/types';
 import { ref } from 'vue';
 import type { PropType } from 'vue'
+import { useShowStore } from '../stores/useShowStore'
+import AddCard from './AddCard.vue'
 
-const props = defineProps({
-    cards: {
-        type: Array as PropType<Card[]>,
-        required: true
-    }
-})
-const cards = props.cards
+const store = useShowStore()
+const cards: Card[] = store.cards
 
+const isOpen = ref<boolean>(false)
 const addCard = () => {
-
+    isOpen.value = !isOpen.value
 }
 
 </script>
@@ -30,6 +28,7 @@ const addCard = () => {
             add
         </li>
     </ul>
+    <AddCard :isOpend="isOpen" @close="isOpen = false"/>
 </template>
 
 <style scoped lang="scss">
